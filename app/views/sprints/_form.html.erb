@@ -1,0 +1,15 @@
+<% @sprint ||= Sprint.new %>
+
+<%= form_for [@team, @sprint] do |f| %>
+  <%= f.label :length %>
+  <%= f.text_field :length %>
+
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date %>  
+
+  <%= f.label :end_date %>
+  <%= f.text_field :end_date %>  
+
+  <%= f.submit %>
+
+<% end %>

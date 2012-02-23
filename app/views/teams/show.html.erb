@@ -1,0 +1,14 @@
+<h2> <%= @team.name %> </h3>
+
+
+
+<h3> Users </h3>
+
+<%= render @team.users %>
+
+<h3> Sprints </h3>
+
+<%= render @team.sprints %>
+
+<%= render "sprints/form" %>
+

@@ -1,0 +1,2 @@
+class ActionItemsController < ApplicationController
+end

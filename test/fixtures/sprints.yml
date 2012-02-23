@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  length: 1
+  team_id: 1
+  start_date: 2012-02-22 12:08:51
+  end_date: 2012-02-22 12:08:51
+
+two:
+  length: 1
+  team_id: 1
+  start_date: 2012-02-22 12:08:51
+  end_date: 2012-02-22 12:08:51
