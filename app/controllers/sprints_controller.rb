@@ -9,11 +9,11 @@ class SprintsController < ApplicationController
 	end
 
 	def create
-		@sprint = Sprint.new(params[:id])
+		@sprint = @team.sprints.build(params[:sprint])
 
 		if @sprint.save
 			respond_to do |format|
-				format.html { redirect_to team_sprint_path(@team, @sprint), notice: "Sprint has been created" }
+				format.html { redirect_to team_path(@team), notice: "Sprint has been created" }
 			end
 		end
 	end
@@ -25,6 +25,6 @@ class SprintsController < ApplicationController
 	end
 
 	def set_sprint
-		@sprint = Sprint.find(params[:id])
+		@sprint = @team.sprints.find(params[:id])
 	end
 end
