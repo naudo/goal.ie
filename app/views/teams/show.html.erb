@@ -1,7 +1,10 @@
 <h2> <%= @team.name %> </h3>
 
+<% content_for :sidebar do %>
+	<h3> Agreements </h3>
 
-
+	<%= render @team.agreements %>
+<% end %>
 <h3> Users </h3>
 
 <%= render @team.users %>

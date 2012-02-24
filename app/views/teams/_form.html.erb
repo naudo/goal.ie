@@ -1,7 +1,18 @@
 <% @team ||= Team.new %>
-<%= form_for @team do |f| %>
+<%= nested_form_for @team do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 
-	<%= f.submit %>
+	<%= f.fields_for :agreements do |agreement| %>
+	  <%= agreement.label :text, "Agreement Text" %>
+	  <%= agreement.text_field :text %>
+	  <%= agreement.link_to_remove "Remove" %>
+	<% end %>
+	<div class="add">
+		<%= f.link_to_add "Add Agreement", :agreements %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>
