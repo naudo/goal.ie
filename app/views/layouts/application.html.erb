@@ -38,6 +38,9 @@
           <div class="container nav-collapse">
             <ul class="nav">
                 <li><%= link_to "Teams",  teams_path %></li>
+                <% if @team %>
+                  <li> <%= link_to "Sprints", "#" %> </li>
+                <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -62,13 +65,6 @@
             <div class="span3">
               <div class="well sidebar-nav">
                 <%= yield :sidebar %>
-                <h3>Sidebar</h3>
-                 <ul class="nav nav-list">
-                    <li class="nav-header">Sidebar</li>
-                    <li><%= link_to "Link1", "/path1"  %></li>
-                    <li><%= link_to "Link2", "/path2"  %></li>
-                    <li><%= link_to "Link3", "/path3"  %></li>
-                </ul>
             </div>
            </div>
           </div>

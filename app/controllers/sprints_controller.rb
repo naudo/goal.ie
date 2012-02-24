@@ -9,7 +9,12 @@ class SprintsController < ApplicationController
 	end
 
 	def create
+		# automagically set the next sprint / previous sprint settings that we know.
+		@previous_sprint = @team.sprints.last
 		@sprint = @team.sprints.build(params[:sprint])
+		@sprint.previous_sprint = @previous_sprint
+		@previous_sprint.next_sprint = @sprint
+		@previous_sprint.save
 
 		if @sprint.save
 			respond_to do |format|
