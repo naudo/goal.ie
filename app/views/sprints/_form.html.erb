@@ -1,6 +1,6 @@
 <% @sprint ||= Sprint.new %>
 
-<%= form_for [@team, @sprint] do |f| %>
+<%= nested_form_for [@team, @sprint] do |f| %>
   <%= f.label :theme %>
   <%= f.text_field :theme %>
   
@@ -13,6 +13,19 @@
   <%= f.label :end_date %>
   <%= f.text_field :end_date %>  
  -->
-  <%= f.submit %>
+
+  <%= f.fields_for :action_items do |action_item| %>
+
+    <%= action_item.label :text, "Action Item Text" %>
+    <%= action_item.text_field :text %>
+
+
+  <% end %>
+
+  <%= f.link_to_add "Add action item", :action_items %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 
 <% end %>

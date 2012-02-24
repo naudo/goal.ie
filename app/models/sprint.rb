@@ -1,4 +1,15 @@
 class Sprint < ActiveRecord::Base
 	belongs_to :sprint
+	has_many :action_items
+
+	has_one :next_sprint, class_name: "Sprint", :foreign_key => :next_sprint_id
+	has_one :previous_sprint, class_name: "Sprint", :foreign_key => :previous_sprint_id
 	validates_presence_of :theme
+
+	accepts_nested_attributes_for :action_items
+
+
+	def previous_sprint_items
+		previous_sprint.present? ? previous_sprint.action_items : []
+	end
 end

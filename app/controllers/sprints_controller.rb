@@ -1,6 +1,6 @@
 class SprintsController < ApplicationController
 	before_filter :set_team
-	before_filter :set_sprint, only: [:show, :update, :destroy]
+	before_filter :set_sprint, only: [:show, :edit, :update, :destroy]
 
 	def index
 	end
@@ -18,6 +18,18 @@ class SprintsController < ApplicationController
 		end
 	end
 
+	def edit
+	end
+	
+	def update
+		@sprint.update_attributes(params[:sprint])
+
+		if @sprint.save
+			respond_to do |format|
+				format.html { redirect_to([@team, @sprint], notice: "Your sprint has been updated") }
+			end
+		end
+	end
 
 	protected
 	def set_team

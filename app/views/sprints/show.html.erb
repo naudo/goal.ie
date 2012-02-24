@@ -1,3 +1,14 @@
 <h2> Sprint: <%= @sprint.theme %> </h2>
 <%= @sprint.length %>
 <%= @sprint.start_date %>
+
+<h2> Action Items </h2>
+<%=  render @sprint.action_items %>
+
+<h2> Previous Action Items </h2>
+<%= render @sprint.previous_sprint_items %>
+
+<h2> Update n' stuff </h2>
+
+
+<%= link_to "Update Sprint", [:edit, @team, @sprint] %>
