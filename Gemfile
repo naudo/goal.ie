@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-gem 'sqlite3'
 gem 'nested_form', git: "https://github.com/ryanb/nested_form.git"
 gem 'devise', '~> 2.0.0'
 
+
+group :production do
+	gem 'pg'
+end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,4 +26,7 @@ group :development do
   gem "twitter-bootstrap-rails", "~> 2.0.1.0"
   gem 'heroku'
   gem 'ruby-debug19', require: "ruby-debug"
+
 end
+
+gem 'sqlite3', groups: [:development, :test]
