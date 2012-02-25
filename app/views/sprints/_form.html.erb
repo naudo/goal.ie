@@ -1,8 +1,13 @@
 <% @sprint ||= Sprint.new %>
 
 <%= nested_form_for [@team, @sprint] do |f| %>
+  <h2> <%= @sprint.new_record? ? "New" : "Edit" %> Sprint </h2>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: @sprint.new_record? ? "Sprint #{@team.sprints.count + 1}" : @sprint.name %>
+
   <%= f.label :theme %>
   <%= f.text_field :theme %>
+  
   
 <!--   <%= f.label :length %>
   <%= f.text_field :length %>
@@ -13,7 +18,7 @@
   <%= f.label :end_date %>
   <%= f.text_field :end_date %>  
  -->
-
+  <h3> Action Items </h3>
   <%= f.fields_for :action_items do |action_item| %>
 
     <%= action_item.label :text, "Action Item Text" %>

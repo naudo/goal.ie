@@ -1,5 +1,7 @@
 <div class="sprint">
-	<%= link_to sprint.theme, [@team, sprint] %>
+	<%= link_to sprint.name, [@team, sprint] %> <%= "(Current)" if sprint == @team.sprints.last %>
+    <%= sprint.theme %>
+
 	<%= sprint.length %>
 	<%= sprint.start_date %>
 	<%= sprint.end_date %>

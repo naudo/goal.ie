@@ -12,10 +12,13 @@ class SprintsController < ApplicationController
 		# automagically set the next sprint / previous sprint settings that we know.
 		@previous_sprint = @team.sprints.last
 		@sprint = @team.sprints.build(params[:sprint])
-		@sprint.previous_sprint = @previous_sprint
-		@previous_sprint.next_sprint = @sprint
-		@previous_sprint.save
 
+		if @team.sprints.count > 1
+			@sprint.previous_sprint = @previous_sprint
+			@previous_sprint.next_sprint = @sprint 
+			@previous_sprint.save
+		end
+		
 		if @sprint.save
 			respond_to do |format|
 				format.html { redirect_to team_path(@team), notice: "Sprint has been created" }

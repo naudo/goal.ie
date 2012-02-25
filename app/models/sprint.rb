@@ -4,7 +4,7 @@ class Sprint < ActiveRecord::Base
 
 	has_one :next_sprint, class_name: "Sprint", :foreign_key => :next_sprint_id
 	has_one :previous_sprint, class_name: "Sprint", :foreign_key => :previous_sprint_id
-	validates_presence_of :theme, :previous_sprint
+	#validates_presence_of :theme #, :previous_sprint
 
 	accepts_nested_attributes_for :action_items
 
