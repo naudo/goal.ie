@@ -2,11 +2,21 @@
 <%= @sprint.length %>
 <%= @sprint.start_date %>
 
+
+<div> 
+	Sprint Travel
+	<% if @sprint.previous_sprint.present? %>
+	  <%= link_to "Previous Sprint: #{@sprint.previous_sprint.name}", [@team, @sprint.previous_sprint] %>
+	<% end %>
+    <% if @sprint.next_sprint.present? %>
+	  <%= link_to "Next Sprint: #{@sprint.next_sprint.name}", [@team, @sprint.next_sprint] %>
+	<% end %>
+</div>
+
 <h2> Action Items </h2>
 <%=  render @sprint.action_items %>
 
 <h2> Previous Action Items </h2>
-<%= link_to "Previous Sprint", [@team, @sprint.previous_sprint] %> <br />
 <%= render @sprint.previous_sprint_items %>
 
 
