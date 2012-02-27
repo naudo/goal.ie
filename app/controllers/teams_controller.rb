@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-	before_filter :set_team, only: [:show, :update, :destroy]
+	before_filter :set_team, only: [:show, :update, :edit, :destroy]
 	def index
 		@teams = Team.all
 	end
@@ -17,6 +17,18 @@ class TeamsController < ApplicationController
 	def show
 	end
 
+	def edit
+	end
+
+	def update
+		if @team.update_attributes
+			respond_to do |format|
+				format.html { redirect_to @team }
+			end
+		else
+
+		end
+	end
 
 	protected
 	def set_team
