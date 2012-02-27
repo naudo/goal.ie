@@ -20,5 +20,9 @@
 <%= render @sprint.previous_sprint_items %>
 
 
+<h2> Positives </h2>
+<%= render @sprint.positives %>
+<h2> Negatives </h2>
+<%= render @sprint.negatives %>
 
 <%= link_to "Update Sprint", [:edit, @team, @sprint] %>
