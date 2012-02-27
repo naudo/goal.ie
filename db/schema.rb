@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224234936) do
+ActiveRecord::Schema.define(:version => 20120227011820) do
 
   create_table "action_items", :force => true do |t|
     t.text     "text"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(:version => 20120224234936) do
   create_table "agreements", :force => true do |t|
     t.text     "text"
     t.integer  "team_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "negatives", :force => true do |t|
+    t.text     "text"
+    t.integer  "owner_id"
+    t.integer  "sprint_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "positives", :force => true do |t|
+    t.text     "text"
+    t.integer  "owner_id"
+    t.integer  "sprint_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

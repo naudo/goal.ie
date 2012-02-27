@@ -29,4 +29,8 @@ group :development do
 
 end
 
-gem 'sqlite3', groups: [:development, :test]
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails', '~> 2.8.0'
+end
+

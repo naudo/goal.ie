@@ -29,6 +29,28 @@
 
   <%= f.link_to_add "Add action item", :action_items %>
 
+  <h3> Positives </h3>
+  <%= f.fields_for :positives do |positive| %>
+
+    <%= positive.label :text, "Action Item Text" %>
+    <%= positive.text_field :text %>
+
+
+  <% end %>
+
+  <%= f.link_to_add "Add positives", :positives %>
+
+  <h3> Negatives </h3>
+  <%= f.fields_for :negatives do |negative| %>
+
+    <%= negative.label :text, "Negative Text" %>
+    <%= negative.text_field :text %>
+
+
+  <% end %>
+
+  <%= f.link_to_add "Add negative", :negatives %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
